@@ -1,0 +1,14 @@
+[project]
+name = "base32-crockford-tools"
+version = "0.1.0"
+description = "Base32 encoding and decoding library using Douglas Crockford's human-readable variant"
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
