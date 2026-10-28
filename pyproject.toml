@@ -1,6 +1,6 @@
 [project]
 name = "base32-crockford-tools"
-version = "0.1.0"
+version = "0.1.1"
 description = "Base32 encoding and decoding library using Douglas Crockford's human-readable variant"
 requires-python = ">=3.10"
 dependencies = []
