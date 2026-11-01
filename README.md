@@ -38,3 +38,10 @@ The trade-off: this is not a drop-in RFC 4648 replacement. If you need a standar
 - **`U` is overloaded.** It maps to integer value 1 during decoding (as a visual alias of `V`/`1`), but it is also checksum symbol 36. The decoder resolves this by position: when `verify_checksum=True` is set, the final symbol is interpreted as a checksum; otherwise `U` decodes as value 1.
 - **Negative integers are rejected.** Crockford's spec describes non-negative magnitudes only. If you need to encode signed values, split the sign out yourself.
 - **Strict mode** (`strict=True`) accepts only uppercase canonical symbols with no separators or aliases. This is for validating machine-generated output, not human input.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
